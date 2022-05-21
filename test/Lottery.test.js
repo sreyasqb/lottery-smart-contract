@@ -21,4 +21,15 @@ describe('Lottery Contract',()=>{
     it('deploys a contract',()=>{
         assert.ok(lottery.options.address);
     });
+    it('adds one and only one address',async ()=>{
+        await lottery.methods.addPlayer().send({
+            from:accounts[0],
+            value:web3.utils.toWei('0.2','ether')
+        });
+        const players=await lottery.methods.getPlayers().call({
+            from:accounts[0],
+        });
+        assert.equal(accounts[0],players[0]);
+        assert.equal(1,players.length); 
+    });
 });

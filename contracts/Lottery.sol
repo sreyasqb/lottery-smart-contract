@@ -20,7 +20,7 @@ contract Inbox{
         payable(players[index]).transfer(address(this).balance); //transfering the winner the balance
         players = new address[](0);
     }
-    function getPlayers() public view restricted returns(address[] memory){
+    function getPlayers() public view returns(address[] memory){
         return players; //the restricted keyword is a modifier that only manager can call it
     }
     modifier restricted(){ //the modifier
