@@ -7,7 +7,7 @@ contract Inbox{
         manager=msg.sender;
     }
     function addPlayer() public payable {
-        require(msg.value>0.1 ether); // the value sending has to be more than 0.1 ether
+        require(msg.value>0.01 ether); // the value sending has to be more than 0.1 ether
         players.push(msg.sender);
     }
     
